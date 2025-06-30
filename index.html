@@ -1420,7 +1420,7 @@
             .code-decoration,
             .geometric-shape,
             .circuit-pattern {
-                display: none;
+                display: initial !important;
             }
         }
 
@@ -2012,43 +2012,65 @@
             }
         });
 
-        // Floating code snippets
+        // Floating code snippets (dynamic for mobile)
         function createFloatingCode() {
             const codeSnippets = [
                 'console.log();', 'function()', '{ }', 'const x =', 'return true;', 
                 'async/await', 'try/catch', 'new Promise()', 'Array.map()', 'Object.keys()',
                 'npm install', 'git commit', 'import from', 'export default', 'useState()'
             ];
-            
+            const interval = isMobile() ? 6000 : 3000;
+            const maxCodes = isMobile() ? 3 : 10;
+            let activeCodes = 0;
             setInterval(() => {
+                if (window.innerWidth < 480) return; // CSS hides, but skip for perf
+                if (activeCodes >= maxCodes) return;
                 const code = document.createElement('div');
                 code.className = 'floating-code';
                 code.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-                code.style.left = Math.random() * 100 + 'vw';
+                code.style.left = Math.random() * (window.innerWidth - 60) + 'px';
+                code.style.top = Math.random() * (window.innerHeight * 0.7) + 'px';
+                code.style.position = 'fixed';
                 code.style.animationDelay = Math.random() * 5 + 's';
                 code.style.color = `var(--accent-${['cyan', 'purple', 'pink', 'green'][Math.floor(Math.random() * 4)]})`;
                 document.body.appendChild(code);
-                
-                setTimeout(() => code.remove(), 20000);
-            }, 3000);
+                activeCodes++;
+                setTimeout(() => {
+                    code.remove();
+                    activeCodes--;
+                }, isMobile() ? 8000 : 20000);
+            }, interval);
         }
 
-        // Create binary rain
+        // Utility: detect mobile device
+        function isMobile() {
+            return window.innerWidth <= 768 || /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        // Binary rain (dynamic for mobile)
         function createBinaryRain() {
             const binaryContainer = document.getElementById('binaryRain');
             const binary = ['0', '1'];
-            
+            const interval = isMobile() ? 2000 : 1000;
+            const maxDrops = isMobile() ? 10 : 30;
+            let activeDrops = 0;
             setInterval(() => {
+                if (window.innerWidth < 480) return;
+                if (activeDrops >= maxDrops) return;
                 const drop = document.createElement('div');
                 drop.className = 'binary-drop';
                 drop.textContent = binary[Math.floor(Math.random() * 2)];
-                drop.style.left = Math.random() * 100 + 'vw';
+                drop.style.left = Math.random() * (window.innerWidth - 20) + 'px';
+                drop.style.position = 'fixed';
                 drop.style.animationDelay = Math.random() * 2 + 's';
                 drop.style.animationDuration = (10 + Math.random() * 10) + 's';
                 binaryContainer.appendChild(drop);
-                
-                setTimeout(() => drop.remove(), 15000);
-            }, 1000);
+                activeDrops++;
+                setTimeout(() => {
+                    drop.remove();
+                    activeDrops--;
+                }, 15000);
+            }, interval);
         }
 
         // Hamburger menu toggle
