@@ -3167,3 +3167,62 @@ img, .terminal-window, .code-block {
   max-width: 100%;
   overflow-x: auto;
 }
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+    min-height: auto;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .terminal-window {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  .code-block {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+
+  .code-line {
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+  }
+
+  .line-number {
+    width: 1.5rem;
+    font-size: 0.75rem;
+  }
+}
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  .code-line {
+    font-size: 0.7rem;
+  }
+
+  .terminal-window {
+    padding: 0.8rem;
+  }
+
+  .code-block {
+    padding: 1rem;
+    font-size: 0.75rem;
+  }
+}
