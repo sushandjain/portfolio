@@ -2630,3 +2630,540 @@ body, .skill-list, .code-block, .projects-container, .contact-links {
   border-radius: 50%;
   overflow: hidden;
 }
+/* === Light Mode Only Enhancements === */
+[data-theme="light"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(128, 90, 213, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(203, 166, 247, 0.03) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(0,0,0,0.03)'/%3E%3C/svg%3E");
+  background-size: cover, cover, cover, 40px 40px;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* Light-only abstract text symbols */
+.decorative-light {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.05);
+  position: fixed;
+  z-index: -1;
+  user-select: none;
+  pointer-events: none;
+}
+.symbol-1 { top: 20%; left: 10%; transform: rotate(-10deg); }
+.symbol-2 { top: 60%; right: 5%; transform: rotate(15deg); }
+.symbol-3 { top: 75%; left: 30%; transform: rotate(-30deg); }
+/* === Terminal Stickers === */
+.terminal-sticker {
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0.08;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  transform: rotate(-10deg);
+  transition: all var(--transition-normal);
+}
+
+/* Dark mode stickers */
+[data-theme="dark"] .terminal-sticker {
+  color: var(--accent-purple);
+  text-shadow: 0 0 8px var(--glow-purple);
+}
+
+/* Light mode stickers */
+[data-theme="light"] .terminal-sticker {
+  color: var(--accent-blue);
+  opacity: 0.15;
+}
+
+/* Position each sticker */
+.sticker-server {
+  top: 12px;
+  left: 14px;
+  content: "🖥️";
+}
+
+.sticker-database {
+  bottom: 10px;
+  right: 12px;
+  content: "💾";
+  transform: rotate(10deg);
+}
+
+.sticker-code {
+  top: 12px;
+  right: 14px;
+  content: "👨‍💻";
+  transform: rotate(5deg);
+}
+
+.sticker-hacker {
+  bottom: 10px;
+  left: 12px;
+  content: "👾";
+  transform: rotate(-15deg);
+}
+
+.sticker-cable {
+  top: 50%;
+  left: 20px;
+  content: "🔌";
+  transform: rotate(90deg);
+}
+
+.sticker-remote {
+  top: 50%;
+  right: 20px;
+  content: "📱";
+  transform: rotate(-15deg);
+}
+
+.sticker-bug {
+  top: 30%;
+  left: 30%;
+  content: "🐛";
+  font-size: 0.9rem;
+}
+
+.sticker-terminal {
+  top: 30%;
+  right: 30%;
+  content: "⌨️";
+}
+
+/* Terminal window sticker container */
+.terminal-stickers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Add stickers to terminal windows */
+.terminal-window {
+  position: relative;
+}
+
+.terminal-window::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* Dark mode stickers */
+    var(--sticker-server-dark) top 12px left 14px / auto no-repeat,
+    var(--sticker-database-dark) bottom 10px right 12px / auto no-repeat,
+    var(--sticker-code-dark) top 12px right 14px / auto no-repeat,
+    var(--sticker-hacker-dark) bottom 10px left 12px / auto no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="light"] .terminal-window::after {
+  /* Light mode stickers */
+  background: 
+    var(--sticker-server-light) top 12px left 14px / auto no-repeat,
+    var(--sticker-database-light) bottom 10px right 12px / auto no-repeat,
+    var(--sticker-code-light) top 12px right 14px / auto no-repeat,
+    var(--sticker-hacker-light) bottom 10px left 12px / auto no-repeat;
+  opacity: 0.15;
+}
+
+/* Sticker animations */
+.sticker-server {
+  animation: floatSticker 8s ease-in-out infinite;
+}
+
+.sticker-database {
+  animation: floatSticker 7s ease-in-out infinite reverse;
+}
+
+.sticker-code {
+  animation: floatSticker 9s ease-in-out infinite 1s;
+}
+
+.sticker-hacker {
+  animation: floatSticker 6s ease-in-out infinite reverse 0.5s;
+}
+
+@keyframes floatSticker {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-10px) rotate(-5deg); }
+}
+
+/* Project card stickers */
+.project-card::before {
+  content: "🚀";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  opacity: 0.1;
+  z-index: 1;
+  transform: rotate(15deg);
+}
+
+[data-theme="light"] .project-card::before {
+  content: "✨";
+  opacity: 0.15;
+}
+
+/* Skill card stickers */
+.skill-category::after {
+  content: "🧠";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  opacity: 0.1;
+  z-index: 1;
+  transform: rotate(-15deg);
+}
+
+[data-theme="light"] .skill-category::after {
+  content: "🔧";
+  opacity: 0.15;
+}
+
+/* Code block stickers */
+.code-block::before {
+  content: "💻";
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 1rem;
+  opacity: 0.1;
+  z-index: 1;
+  transform: rotate(-5deg);
+}
+
+[data-theme="light"] .code-block::before {
+  content: "📝";
+  opacity: 0.15;
+}
+
+/* Contact form stickers */
+.contact-form::before {
+  content: "📧";
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 1.5rem;
+  opacity: 0.1;
+  z-index: 1;
+  transform: rotate(15deg);
+}
+
+[data-theme="light"] .contact-form::before {
+  content: "📩";
+  opacity: 0.15;
+}
+
+/* Dynamic sticker visibility based on theme */
+:root {
+  --sticker-server-dark: "🖥️";
+  --sticker-database-dark: "💾";
+  --sticker-code-dark: "👨‍💻";
+  --sticker-hacker-dark: "👾";
+  --sticker-server-light: "🌐";
+  --sticker-database-light: "🗃️";
+  --sticker-code-light: "💻";
+  --sticker-hacker-light: "🛡️";
+}
+
+/* Responsive adjustments for stickers */
+@media (max-width: 768px) {
+  .terminal-sticker,
+  .project-card::before,
+  .skill-category::after,
+  .code-block::before,
+  .contact-form::before {
+    font-size: 0.9rem;
+    opacity: 0.05;
+  }
+  
+  [data-theme="light"] .terminal-sticker,
+  [data-theme="light"] .project-card::before,
+  [data-theme="light"] .skill-category::after,
+  [data-theme="light"] .code-block::before,
+  [data-theme="light"] .contact-form::before {
+    opacity: 0.1;
+  }
+}
+
+/* === Terminal Stickers with Animations === */
+.terminal-sticker {
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  transition: all var(--transition-normal);
+  text-shadow: 0 0 5px currentColor;
+}
+
+/* Dark mode stickers */
+[data-theme="dark"] .terminal-sticker {
+  color: var(--accent-purple);
+  opacity: 0.08;
+}
+
+/* Light mode stickers */
+[data-theme="light"] .terminal-sticker {
+  color: var(--accent-blue);
+  opacity: 0.15;
+}
+
+/* Sticker positions */
+.sticker-server {
+  top: 12px;
+  left: 14px;
+  animation: floatSticker 8s ease-in-out infinite, glowPulse 4s ease-in-out infinite alternate;
+}
+
+.sticker-database {
+  bottom: 10px;
+  right: 12px;
+  animation: floatSticker 7s ease-in-out infinite reverse, glowPulse 5s ease-in-out infinite alternate-reverse;
+}
+
+.sticker-code {
+  top: 12px;
+  right: 14px;
+  animation: floatSticker 9s ease-in-out infinite 1s, glowPulse 3s ease-in-out infinite alternate;
+}
+
+.sticker-hacker {
+  bottom: 10px;
+  left: 12px;
+  animation: floatSticker 6s ease-in-out infinite reverse 0.5s, glowPulse 6s ease-in-out infinite alternate-reverse;
+}
+
+.sticker-cable {
+  top: 50%;
+  left: 20px;
+  transform: rotate(90deg);
+  animation: cableSwing 5s ease-in-out infinite, glowPulse 4s ease-in-out infinite alternate;
+}
+
+.sticker-remote {
+  top: 50%;
+  right: 20px;
+  animation: floatSticker 5s ease-in-out infinite reverse, glowPulse 5s ease-in-out infinite alternate-reverse;
+}
+
+.sticker-bug {
+  top: 30%;
+  left: 30%;
+  font-size: 0.9rem;
+  animation: bugCrawl 10s linear infinite, glowPulse 3s ease-in-out infinite alternate;
+}
+
+/* Sticker animations */
+@keyframes floatSticker {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.1; text-shadow: 0 0 5px currentColor; }
+  100% { opacity: 0.3; text-shadow: 0 0 15px currentColor; }
+}
+
+@keyframes cableSwing {
+  0%, 100% { transform: rotate(85deg); }
+  50% { transform: rotate(95deg); }
+}
+
+@keyframes bugCrawl {
+  0% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(10px) translateY(-5px) rotate(5deg); }
+  50% { transform: translateX(20px) translateY(0) rotate(0deg); }
+  75% { transform: translateX(10px) translateY(5px) rotate(-5deg); }
+  100% { transform: translateX(0) translateY(0) rotate(0deg); }
+}
+
+/* Project card stickers */
+.project-card .terminal-sticker {
+  font-size: 1.5rem;
+  opacity: 0.15;
+  animation: projectStickerFloat 8s ease-in-out infinite, glowPulse 4s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .project-card .terminal-sticker {
+  opacity: 0.1;
+}
+
+[data-theme="light"] .project-card .terminal-sticker {
+  opacity: 0.2;
+}
+
+@keyframes projectStickerFloat {
+  0%, 100% { transform: translateY(0) scale(1) rotate(-10deg); }
+  50% { transform: translateY(-10px) scale(1.1) rotate(10deg); }
+}
+
+/* Skill category stickers */
+.skill-category .terminal-sticker {
+  font-size: 2rem;
+  opacity: 0.1;
+  animation: skillStickerSpin 15s linear infinite, glowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes skillStickerSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Contact form sticker */
+.contact-form .terminal-sticker {
+  font-size: 2rem;
+  right: -15px;
+  top: -15px;
+  animation: contactStickerFloat 6s ease-in-out infinite, glowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes contactStickerFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Hover effects */
+.terminal-sticker:hover {
+  animation-play-state: paused;
+  opacity: 0.5 !important;
+  transform: scale(1.5);
+  text-shadow: 0 0 20px currentColor;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .terminal-sticker {
+    font-size: 0.9rem;
+    opacity: 0.05 !important;
+    animation: none !important;
+  }
+  
+  .project-card .terminal-sticker,
+  .skill-category .terminal-sticker,
+  .contact-form .terminal-sticker {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg-primary);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
+@media (max-width: 768px) {
+  .about-grid,
+  .skills-grid,
+  .projects-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr !important;
+  }
+
+  .terminal-window {
+    margin: 1rem 0;
+  }
+
+  .project-card,
+  .skill-category {
+    margin-bottom: 2rem;
+  }
+}
+img, .terminal-window, .code-block {
+  max-width: 100%;
+  overflow-x: auto;
+}
+@media (max-width: 768px) {
+  .form-group {
+    display: block;
+  }
+
+  .form-control {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--bg-primary);
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
+@media (max-width: 768px) {
+  .about-grid,
+  .skills-grid,
+  .projects-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr !important;
+  }
+
+  .skill-list {
+    flex-wrap: wrap;
+  }
+
+  .terminal-window {
+    margin: 1rem 0;
+  }
+}
+.code-block, .terminal-window, .skill-list {
+  max-width: 100%;
+  overflow-x: auto;
+}
