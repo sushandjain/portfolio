@@ -3226,3 +3226,66 @@ img, .terminal-window, .code-block {
     font-size: 0.75rem;
   }
 }
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px; /* ensure it clears the fixed navbar */
+  }
+
+  .terminal-window {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+    font-size: 0.75rem;
+    overflow-x: auto;
+  }
+
+  .code-block {
+    padding: 1rem;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  .code-line {
+    font-size: 0.7rem;
+    flex-wrap: wrap;
+  }
+
+  .line-number {
+    font-size: 0.65rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .typing-cursor {
+    height: 0.9rem;
+  }
+}
+body {
+  padding-top: 80px; /* Ensure all sections move below fixed nav */
+}
+@media (max-width: 480px) {
+  .terminal-window {
+    font-size: 0.7rem;
+    padding: 0.8rem;
+  }
+
+  .code-block {
+    font-size: 0.68rem;
+    padding: 0.6rem;
+  }
+
+  .line-number {
+    width: 1.2rem;
+    font-size: 0.6rem;
+  }
+
+  .code-line {
+    padding: 0.2rem 0;
+  }
+}
+.code-block {
+  overflow-x: auto;
+  white-space: pre;
+}
