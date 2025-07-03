@@ -3289,3 +3289,75 @@ body {
   overflow-x: auto;
   white-space: pre;
 }
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+
+  .hero {
+    padding: 60px 10px 40px;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .terminal-window {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 0.75rem;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  .terminal-body {
+    padding: 1rem;
+  }
+
+  .code-block {
+    padding: 1rem;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre;
+    word-break: break-word;
+  }
+
+  .code-line {
+    font-size: 0.7rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .line-number {
+    font-size: 0.65rem;
+    width: 1.2rem;
+    margin-right: 0.5rem;
+  }
+
+  .typing-cursor {
+    height: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .code-block {
+    font-size: 0.68rem;
+    padding: 0.8rem;
+  }
+
+  .terminal-window {
+    font-size: 0.7rem;
+    padding: 0.8rem;
+  }
+
+  .code-line {
+    font-size: 0.68rem;
+  }
+
+  .line-number {
+    width: 1rem;
+    font-size: 0.6rem;
+  }
+}
