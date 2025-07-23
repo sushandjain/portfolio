@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Sushan D Jain, a BCA graduate and web developer skilled in Java, full-stack web development, and AI solutions.">
     <meta name="keywords" content="Sushan Jain, web developer, full-stack developer, Java, JavaScript, Node.js, AI, Python, BCA">
-    <meta name="author" content="Sushan D Jain">
     <title>Sushan D Jain - Web Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Decorative elements -->
     <div class="binary-rain" id="binaryRain"></div>
     <div class="code-decoration decoration-1">💻</div>
@@ -23,9 +24,8 @@
     <div class="circuit-pattern circuit-1"></div>
     <div class="circuit-pattern circuit-2"></div>
     <div class="decorative-light symbol-1">{ }</div>
-<div class="decorative-light symbol-2">&lt;/&gt;</div>
-<div class="decorative-light symbol-3">function()</div>
-
+    <div class="decorative-light symbol-2"></></div>
+    <div class="decorative-light symbol-3">function()</div>
 
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
@@ -33,42 +33,41 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container">
-            <div class="logo-container">
-                <div class="nav-photo" id="navPhoto">
+            <a class="navbar-brand logo-container" href="#" onclick="scrollToSection('hero')">
+                <div class="nav-photo" data-bs-toggle="modal" data-bs-target="#photoModal">
                     <img src="assets/sushan-profile.jpg" alt="Sushan D Jain Profile Photo">
                 </div>
                 <div class="logo">sushanjain.dev</div>
-            </div>
-            <ul class="nav-links">
-
-                <li><a onclick="scrollToSection('hero')">home</a></li>
-                <li><a onclick="scrollToSection('about')">about</a></li>
-                <li><a onclick="scrollToSection('skills')">skills</a></li>
-                <li><a onclick="scrollToSection('projects')">projects</a></li>
-                <li><a onclick="scrollToSection('contact')">contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="#hero" onclick="scrollToSection('hero'); collapseNavbar();">home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" onclick="scrollToSection('about'); collapseNavbar();">about</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" onclick="scrollToSection('skills'); collapseNavbar();">skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects" onclick="scrollToSection('projects'); collapseNavbar();">projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" onclick="scrollToSection('contact'); collapseNavbar();">contact</a></li>
+                </ul>
             </div>
             <div class="theme-container">
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span class="theme-toggle-icon">🌙</span>
-  </button>
-</div>
-
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-toggle-icon">🌙</span>
+                </button>
+            </div>
         </div>
     </nav>
 
-
     <!-- Modal for Enlarged Photo -->
-    <div class="modal" id="photoModal">
-        <div class="modal-content">
-            <span class="modal-close" id="modalClose">×</span>
-            <img src="assets/sushan-profile.jpg" alt="Sushan D Jain Enlarged Profile Photo" class="modal-img">
+    <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <span class="modal-close" data-bs-dismiss="modal" aria-label="Close">×</span>
+                <img src="assets/sushan-profile.jpg" alt="Sushan D Jain Enlarged Profile Photo" class="modal-img">
+            </div>
         </div>
     </div>
 
@@ -77,8 +76,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="terminal-window">
-                    <!-- Decorative Stickers -->
-<div class="terminal-stickers">
+                    <div class="terminal-stickers">
                         <div class="terminal-sticker sticker-server">🖥️</div>
                         <div class="terminal-sticker sticker-database">💾</div>
                         <div class="terminal-sticker sticker-code">👨‍💻</div>
@@ -86,7 +84,6 @@
                         <div class="terminal-sticker sticker-cable">🔌</div>
                         <div class="terminal-sticker sticker-remote">📱</div>
                     </div>
-
                     <div class="terminal-header">
                         <div class="terminal-buttons">
                             <div class="terminal-btn btn-close"></div>
@@ -103,50 +100,54 @@
                             </div>
                             <div class="code-line">
                                 <span class="line-number">2</span>
-                                  <span class="function">constructor</span>() {
+                                <span class="function">constructor</span>() {
                             </div>
                             <div class="code-line">
                                 <span class="line-number">3</span>
-                                    <span class="keyword">this</span>.<span class="variable">name</span> = <span class="string">'Sushan D Jain'</span>;
+                                <span class="keyword">this</span>.<span class="variable">name</span> = <span class="string">'Sushan D Jain'</span>;
                             </div>
                             <div class="code-line">
                                 <span class="line-number">4</span>
-                                    <span class="keyword">this</span>.<span class="variable">role</span> = <span class="string">'Web Developer'</span>;
+                                <span class="keyword">this</span>.<span class="variable">role</span> = <span class="string">'Web Developer'</span>;
                             </div>
                             <div class="code-line">
                                 <span class="line-number">5</span>
-                                    <span class="keyword">this</span>.<span class="variable">education</span> = <span class="string">'BCA, Vivekananda College, Puttur'</span>;
+                                <span class="keyword">this</span>.<span class="variable">education</span> = <span class="string">'BCA, Vivekananda College, Puttur'</span>;
                             </div>
                             <div class="code-line">
                                 <span class="line-number">6</span>
-                                    <span class="keyword">this</span>.<span class="variable">skills</span> = [<span class="string">'Java'</span>, <span class="string">'JavaScript'</span>, <span class="string">'Node.js'</span>, <span class="string">'Python'</span>, <span class="string">'SQL'</span>];
+                                <span class="keyword">this</span>.<span class="variable">skills</span> = [<span class="string">'Java'</span>, <span class="string">'JavaScript'</span>, <span class="string">'Node.js'</span>, <span class="string">'Python'</span>, <span class="string">'SQL'</span>];
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">7</span>
+                                <span class="keyword">this</span>.<span class="variable">passion</span> = <span class="string">'Problem Solving'</span>;
                             </div>
                             <div class="code-line">
                                 <span class="line-number">8</span>
-                                    <span class="keyword">this</span>.<span class="variable">location</span> = <span class="string">'Puttur, India'</span>;
+                                <span class="keyword">this</span>.<span class="variable">location</span> = <span class="string">'Puttur, India'</span>;
                             </div>
                             <div class="code-line">
                                 <span class="line-number">9</span>
-                                    <span class="keyword">this</span>.<span class="variable">contact</span> = <span class="string">'sushandjain@gmail.com'</span>;
+                                <span class="keyword">this</span>.<span class="variable">contact</span> = <span class="string">'sushandjain@gmail.com'</span>;
                             </div>
                             <div class="code-line">
                                 <span class="line-number">10</span>
-                                  }
+                                }
                             </div>
                             <div class="code-line">
                                 <span class="line-number">11</span>
                             </div>
                             <div class="code-line">
                                 <span class="line-number">12</span>
-                                  <span class="function">getMission</span>() {
+                                <span class="function">getMission</span>() {
                             </div>
                             <div class="code-line">
                                 <span class="line-number">13</span>
-                                    <span class="keyword">return</span> <span class="string">'Building efficient, scalable solutions'</span>;
+                                <span class="keyword">return</span> <span class="string">'Building efficient, scalable solutions'</span>;
                             </div>
                             <div class="code-line">
                                 <span class="line-number">14</span>
-                                  }
+                                }
                             </div>
                             <div class="code-line">
                                 <span class="line-number">15</span>
@@ -178,71 +179,73 @@
     grow();
   }
 }</div>
-            
             <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>I'm <span class="highlight">Sushan D Jain</span>, a recent BCA graduate from Vivekananda College of Arts Science and Commerce Puttur, with a deep passion for Software Development and problem-solving. I specialize in <span class="highlight">Java</span>, <span class="highlight">Object-Oriented Programming (OOP)</span>, and <span class="highlight">Data Structures & Algorithms (DSA)</span>, and I enjoy building efficient, scalable solutions that solve real-world challenges.</p>
-                    <p>During my academic journey, I also explored <span class="highlight">Full Stack Web Development</span>, gaining hands-on experience with HTML, CSS, JavaScript, Bootstrap, Node.js, and SQL. I’ve completed several impactful projects, including an AI-based answer evaluation system and a farmer-to-consumer market platform, which reflect both my technical skills and practical thinking.</p>
-                    <p>I’ve participated in national-level hackathons and coding competitions, which helped me grow as a collaborative, creative, and detail-oriented developer. Now, I’m actively seeking opportunities in the software development industry where I can apply my skills, contribute to meaningful projects, and continue learning.</p>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <p>I'm <span class="highlight">Sushan D Jain</span>, a recent BCA graduate from Vivekananda College of Arts Science and Commerce Puttur, with a deep passion for Software Development and problem-solving. I specialize in <span class="highlight">Java</span>, <span class="highlight">Object-Oriented Programming (OOP)</span>, and <span class="highlight">Data Structures & Algorithms (DSA)</span>, and I enjoy building efficient, scalable solutions that solve real-world challenges.</p>
+                        <p>During my academic journey, I also explored <span class="highlight">Full Stack Web Development</span>, gaining hands-on experience with HTML, CSS, JavaScript, Bootstrap, Node.js, and SQL. I've completed several impactful projects, including an AI-based answer evaluation system and a farmer-to-consumer market platform, which reflect both my technical skills and practical thinking.</p>
+                        <p>I've participated in national-level hackathons and coding competitions, which helped me grow as a collaborative, creative, and detail-oriented developer. Now, I'm actively seeking opportunities in the software development industry where I can apply my skills, contribute to meaningful projects, and continue learning.</p>
+                    </div>
                 </div>
-                <div class="terminal-window">
-                    <div class="terminal-stickers">
-                        <div class="terminal-sticker sticker-server">📁</div>
-                        <div class="terminal-sticker sticker-database">🗄️</div>
-                        <div class="terminal-sticker sticker-code">📝</div>
-                        <div class="terminal-sticker sticker-bug">🐛</div>
-                    </div>
-                    <div class="terminal-header">
-                        <div class="terminal-buttons">
-                            <div class="terminal-btn btn-close"></div>
-                            <div class="terminal-btn btn-minimize"></div>
-                            <div class="terminal-btn btn-maximize"></div>
+                <div class="col-lg-6">
+                    <div class="terminal-window">
+                        <div class="terminal-stickers">
+                            <div class="terminal-sticker sticker-server">📁</div>
+                            <div class="terminal-sticker sticker-database">🗄️</div>
+                            <div class="terminal-sticker sticker-code">📝</div>
+                            <div class="terminal-sticker sticker-bug">🐛</div>
                         </div>
-                        <span>profile.json</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="code-block">
-                            <div class="code-line">
-                                <span class="line-number">1</span>
-                                {
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <div class="terminal-btn btn-close"></div>
+                                <div class="terminal-btn btn-minimize"></div>
+                                <div class="terminal-btn btn-maximize"></div>
                             </div>
-                            <div class="code-line">
-                                <span class="line-number">2</span>
-                                <span class="string">"name"</span>: <span class="string">"Sushan D Jain"</span>,
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">3</span>
-                                <span class="string">"education"</span>: <span class="string">"BCA, Vivekananda College, Puttur, 2025"</span>,
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">4</span>
-                                <span class="string">"focus"</span>: <span class="string">"Software Development & Full-Stack Web"</span>,
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">5</span>
-                                <span class="string">"achievements"</span>: [
-                            </div>
-            
-                            <div class="code-line">
-                                <span class="line-number">7</span>
-                                <span class="string">"Full Stack Web Development Certified, Udemy 2024"</span>,
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">8</span>
-                                <span class="string">"Java Programming Foundation Certified"</span>
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">6</span>
-                                <span class="string">"Runner-up, National Coding Competition, Shree Devi Institute"</span>,
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">9</span>
-                                ]
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">10</span>
-                                }
+                            <span>profile.json</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="code-block">
+                                <div class="code-line">
+                                    <span class="line-number">1</span>
+                                    {
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">2</span>
+                                    <span class="string">"name"</span>: <span class="string">"Sushan D Jain"</span>,
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">3</span>
+                                    <span class="string">"education"</span>: <span class="string">"BCA, Vivekananda College, Puttur, 2025"</span>,
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">4</span>
+                                    <span class="string">"focus"</span>: <span class="string">"Software Development & Full-Stack Web"</span>,
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">5</span>
+                                    <span class="string">"achievements"</span>: [
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">6</span>
+                                    <span class="string">"Runner-up, National Coding Competition, Shree Devi Institute"</span>,
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">7</span>
+                                    <span class="string">"Full Stack Web Development Certified, Udemy 2024"</span>,
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">8</span>
+                                    <span class="string">"Java Programming Foundation Certified"</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">9</span>
+                                    ]
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">10</span>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -257,46 +260,55 @@
     <section id="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills & Tech Stack</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <!-- Skill Category Sticker -->
-                    <div class="terminal-sticker sticker-code">🧠</div>
-                    <h3>Programming Languages</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">Python</span>
+            <div class="row row-cols-1 row-cols-lg-2 g-4">
+                <div class="col">
+                    <div class="skill-category h-100">
+                        <div class="terminal-sticker sticker-code">🧠</div>
+                        <h3>Programming Languages</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="terminal-sticker sticker-code">⚙️</div>
-                    <h3>Core Concepts</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">OOP</span>
-                        <span class="skill-tag">DSA</span>
-                        <span class="skill-tag">File Handling</span>
-                        <span class="skill-tag">Algorithm Design</span>
+                <div class="col">
+                    <div class="skill-category h-100">
+                        <div class="terminal-sticker sticker-code">⚙️</div>
+                        <h3>Core Concepts</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">OOP</span>
+                            <span class="skill-tag">DSA</span>
+                            <span class="skill-tag">File Handling</span>
+                            <span class="skill-tag">Algorithm Design</span>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category"><div class="terminal-sticker sticker-code">🌐</div>
-                    <h3>Web Technologies</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">SQL</span>
+                <div class="col">
+                    <div class="skill-category h-100">
+                        <div class="terminal-sticker sticker-code">🌐</div>
+                        <h3>Web Technologies</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category"><div class="terminal-sticker sticker-code">🛠️</div>
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">IntelliJ IDEA</span>
+                <div class="col">
+                    <div class="skill-category h-100">
+                        <div class="terminal-sticker sticker-code">🛠️</div>
+                        <h3>Tools & Platforms</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">IntelliJ IDEA</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -309,61 +321,70 @@
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-container">
-                <div class="project-card"><div class="terminal-sticker sticker-code">🚀</div>
-                    <div class="project-header">
-                        <div class="project-title">Descriptive Answer Evaluation System</div>
-                        <div class="project-status">Hackathon Project</div>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">Built during a national-level hackathon at Yenepoya University. Designed an AI-powered tool to evaluate handwritten student answer sheets using OCR to extract content from PDF scans and GPT-based evaluation to assess answers based on grammar, content quality, and relevance to the question. The system assigns marks question-wise, reducing manual workload for educators. Built the backend in Python and integrated AI logic for scoring.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">OCR</span>
-                            <span class="tech-tag">NLP (ChatGPT API)</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">PDF Parsing</span>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col d-flex align-items-stretch">
+                    <div class="project-card">
+                        <div class="terminal-sticker sticker-code">🚀</div>
+                        <div class="project-header">
+                            <div class="project-title">Descriptive Answer Evaluation System</div>
+                            <div class="project-status">Hackathon Project</div>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/shettyharshith33/po2025_byte_buddies" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card"><div class="terminal-sticker sticker-code">🛒</div>
-                    <div class="project-header">
-                        <div class="project-title">Kheti-Bazaar</div>
-                        <div class="project-status">Full-Stack Project</div>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">Developed a web-based marketplace platform allowing farmers to directly list their produce and buyers to purchase without middlemen. Implemented JWT-based authentication with role-based access (Admin/Farmer/Buyer). Features include product listings with images, dashboard, password reset via email, and a mobile-responsive UI. Used SQL for database, Node.js/Express for backend, and EJS + Bootstrap for UI.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">EJS</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Bootstrap</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/sushandjain/Kheti-baazaar" class="project-link">GitHub</a>
+                        <div class="project-body">
+                            <p class="project-description">Built during a national-level hackathon at Yenepoya University. Designed an AI-powered tool to evaluate handwritten student answer sheets using OCR to extract content from PDF scans and GPT-based evaluation to assess answers based on grammar, content quality, and relevance to the question. The system assigns marks question-wise, reducing manual workload for educators. Built the backend in Python and integrated AI logic for scoring.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">OCR</span>
+                                <span class="tech-tag">NLP (ChatGPT API)</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">PDF Parsing</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/shettyharshith33/po2025_byte_buddies" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-card"><div class="terminal-sticker sticker-code">🛍️</div>
-                    <div class="project-header">
-                        <div class="project-title">Amazon Clone</div>
-                        <div class="project-status">Frontend Project</div>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">Built a static frontend clone of Amazon’s homepage to learn layout techniques. Focused on responsive design using Bootstrap grids and custom styling. Explored HTML structure, CSS positioning, and e-commerce design elements. Learned through Apna College.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">Bootstrap</span>
+                <div class="col d-flex align-items-stretch">
+                    <div class="project-card">
+                        <div class="terminal-sticker sticker-code">🛒</div>
+                        <div class="project-header">
+                            <div class="project-title">Kheti-Bazaar</div>
+                            <div class="project-status">Full-Stack Project</div>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/sushandjain/amazon_clone" class="project-link">GitHub</a>
+                        <div class="project-body">
+                            <p class="project-description">Developed a web-based marketplace platform allowing farmers to directly list their produce and buyers to purchase without middlemen. Implemented JWT-based authentication with role-based access (Admin/Farmer/Buyer). Features include product listings with images, dashboard, password reset via email, and a mobile-responsive UI. Used SQL for database, Node.js/Express for backend, and EJS + Bootstrap for UI.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">EJS</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/sushandjain/Kheti-baazaar" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-stretch">
+                    <div class="project-card">
+                        <div class="terminal-sticker sticker-code">🛍️</div>
+                        <div class="project-header">
+                            <div class="project-title">Amazon Clone</div>
+                            <div class="project-status">Frontend Project</div>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">Built a static frontend clone of Amazon's homepage to learn layout techniques. Focused on responsive design using Bootstrap grids and custom styling. Explored HTML structure, CSS positioning, and e-commerce design elements. Learned through Apna College.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/sushandjain/amazon_clone" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,18 +398,23 @@
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content"><div class="terminal-sticker sticker-code">📧</div>
+            <div class="contact-content">
+                <div class="terminal-sticker sticker-code">📧</div>
                 <p class="contact-description">
                     I'm eager to collaborate on innovative projects, discuss opportunities in software development, or connect with like-minded developers. Reach out to start a conversation!
                 </p>
                 <form class="contact-form" id="contactForm" action="https://formspree.io/f/xldnokan" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name" required aria-label="Your Name">
-                        <input type="email" name="email" class="form-control" placeholder="Your Email" required aria-label="Your Email">
+                    <div class="form-group row g-3">
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required aria-label="Your Name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required aria-label="Your Email">
+                        </div>
                     </div>
                     <input type="text" name="subject" class="form-control" placeholder="Subject" required aria-label="Subject">
                     <textarea name="message" class="form-control" placeholder="Your Message" required aria-label="Your Message"></textarea>
-                    <button type="submit" class="project-link">Send Message</button>
+                    <button type="submit" class="project-link btn">Send Message</button>
                 </form>
                 <div id="formFeedback" style="margin-top:1rem;"></div>
                 <div class="contact-links">
@@ -396,11 +422,11 @@
                         <span class="icon">📧</span>
                         <span>sushandjain@gmail.com</span>
                     </a>
-                    <a href="https://github.com/sushandjain" class="contact-link" target="_blank">
+                    <a href="https://github.com/sushandjain" class="contact-link" target="_blank" rel="noopener noreferrer">
                         <span class="icon">🐙</span>
                         <span>GitHub</span>
                     </a>
-                    <a href="https://linkedin.com/in/sushandjain121" class="contact-link" target="_blank">
+                    <a href="https://linkedin.com/in/sushandjain121" class="contact-link" target="_blank" rel="noopener noreferrer">
                         <span class="icon">💼</span>
                         <span>LinkedIn</span>
                     </a>
@@ -419,47 +445,104 @@
             <p>© 2025 Sushan D Jain. Built with <span style="color: var(--accent-pink)">♥</span> using HTML, CSS, and JavaScript.</p>
         </div>
     </footer>
-<!-- Removed duplicate hamburger/navLinks declaration and event listener to avoid redeclaration error -->
+
+    <!-- JavaScript -->
     <script>
-        
-        // Generate particles
+        // Mobile detection utilities
+        const DeviceDetector = {
+            isMobile: () => window.innerWidth <= 768 || /Mobi|Android/i.test(navigator.userAgent),
+            isTablet: () => window.innerWidth > 768 && window.innerWidth <= 1024,
+            isTouch: () => 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+            getViewportWidth: () => Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+            getViewportHeight: () => Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+        };
+
+        // Performance manager for mobile optimization
+        const PerformanceManager = {
+            reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+            lowPowerMode: navigator.deviceMemory && navigator.deviceMemory < 4,
+            
+            shouldReduceAnimations() {
+                return this.reducedMotion || this.lowPowerMode || DeviceDetector.isMobile();
+            },
+            
+            getOptimalInterval(baseInterval) {
+                if (DeviceDetector.isMobile()) return baseInterval * 3;
+                if (DeviceDetector.isTablet()) return baseInterval * 1.5;
+                return baseInterval;
+            },
+            
+            getOptimalCount(baseCount) {
+                if (DeviceDetector.isMobile()) return Math.max(1, Math.floor(baseCount * 0.3));
+                if (DeviceDetector.isTablet()) return Math.floor(baseCount * 0.6);
+                return baseCount;
+            }
+        };
+
+        // Enhanced mobile navigation
+        function collapseNavbar() {
+            const navbarCollapse = document.getElementById('navbarNav');
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse && navbarCollapse.classList.contains('show')) {
+                bsCollapse.hide();
+            }
+        }
+
+        // Optimized smooth scrolling with mobile considerations
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (!element) return;
+            
+            const offset = DeviceDetector.isMobile() ? 80 : 100;
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: PerformanceManager.shouldReduceAnimations() ? 'auto' : 'smooth'
+            });
+        }
+
+        // Optimized particle generation
         function createParticles() {
-            const particleCount = 20;
+            if (PerformanceManager.shouldReduceAnimations()) return;
+            
+            const particleCount = PerformanceManager.getOptimalCount(20);
+            const viewportWidth = DeviceDetector.getViewportWidth();
+            
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.left = `${Math.random() * viewportWidth}px`;
                 particle.style.animationDelay = `${Math.random() * 10}s`;
                 particle.style.animationDuration = `${10 + Math.random() * 10}s`;
                 document.body.appendChild(particle);
             }
         }
 
-        // Loading overlay
+        // Enhanced loading overlay with mobile considerations
         window.addEventListener('load', () => {
             const loadingOverlay = document.getElementById('loadingOverlay');
+            const loadingDelay = DeviceDetector.isMobile() ? 500 : 1000;
+            
             setTimeout(() => {
                 loadingOverlay.classList.add('hidden');
-            }, 1000);
-            createParticles();
+                createParticles();
+            }, loadingDelay);
         });
 
-        // Smooth scrolling
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Scroll reveal animations
+        // Mobile-optimized scroll reveal animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: DeviceDetector.isMobile() ? 0.05 : 0.1,
+            rootMargin: DeviceDetector.isMobile() ? '0px 0px -30px 0px' : '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    if (!PerformanceManager.shouldReduceAnimations()) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
                     entry.target.style.opacity = '1';
                     observer.unobserve(entry.target);
                 }
@@ -471,52 +554,98 @@
             observer.observe(section);
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
+        // Enhanced navbar scroll effect with mobile optimization
+        let lastScrollY = 0;
+        let navbarHidden = false;
+        
+        function handleScroll() {
             const nav = document.getElementById('navbar');
-            nav.classList.toggle('scrolled', window.scrollY > 100);
+            const currentScrollY = window.scrollY;
+            
+            // Basic scroll effect
+            nav.classList.toggle('scrolled', currentScrollY > 100);
+            
+            // Mobile: Hide navbar on scroll down, show on scroll up
+            if (DeviceDetector.isMobile()) {
+                const scrollDelta = currentScrollY - lastScrollY;
+                
+                if (scrollDelta > 10 && currentScrollY > 200 && !navbarHidden) {
+                    nav.style.transform = 'translateY(-100%)';
+                    navbarHidden = true;
+                    } else if (scrollDelta < -10 && navbarHidden) {
+                    nav.style.transform = 'translateY(0)';
+                    navbarHidden = false;
+                }
+            }
+            
+            lastScrollY = currentScrollY;
+        }
+
+        // Throttled scroll handler for better performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(handleScroll, 10);
         });
 
-        // Contact form handling
+        // Contact form handling with enhanced mobile UX
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const form = e.target;
             const formData = new FormData(form);
             const sendBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = sendBtn.textContent;
-            sendBtn.textContent = 'Sending...';
+            
+            // Mobile-friendly loading state
+            sendBtn.textContent = DeviceDetector.isMobile() ? 'Sending...' : 'Sending Message...';
             sendBtn.disabled = true;
+            
             const feedbackDiv = document.getElementById('formFeedback');
             if (feedbackDiv) {
                 feedbackDiv.textContent = '';
                 feedbackDiv.style.display = 'none';
             }
+
             try {
                 const response = await new Promise(async (resolve, reject) => {
                     try {
                         const res = await fetch(form.action, {
                             method: 'POST',
-                            body: formData
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
                         });
-                        setTimeout(() => resolve(res), 2000);
+                        // Add minimum delay for better UX
+                        setTimeout(() => resolve(res), 1500);
                     } catch (err) {
                         reject(err);
                     }
                 });
+
                 let data = null;
-                let isJson = response.headers.get('content-type') && response.headers.get('content-type').includes('application/json');
+                const contentType = response.headers.get('content-type');
+                const isJson = contentType && contentType.includes('application/json');
+                
                 if (isJson) {
                     data = await response.json();
                 }
+
                 if (response.ok && (!data || data.ok || data.success)) {
                     if (feedbackDiv) {
-                        feedbackDiv.textContent = "Thank you for your message! I'll get back to you soon.";
+                        feedbackDiv.textContent = "Thank you! I'll get back to you soon.";
                         feedbackDiv.style.color = '#50fa7b';
                         feedbackDiv.style.display = 'block';
+                        
+                        // Auto-hide success message
                         setTimeout(() => {
-                            feedbackDiv.textContent = '';
-                            feedbackDiv.style.display = 'none';
-                        }, 3000);
+                            feedbackDiv.style.opacity = '0';
+                            setTimeout(() => {
+                                feedbackDiv.textContent = '';
+                                feedbackDiv.style.display = 'none';
+                                feedbackDiv.style.opacity = '1';
+                            }, 300);
+                        }, 4000);
                     }
                     form.reset();
                 } else if (data && data.errors && data.errors.length > 0) {
@@ -524,229 +653,414 @@
                         feedbackDiv.textContent = 'Error: ' + data.errors[0].message;
                         feedbackDiv.style.color = '#ff5555';
                         feedbackDiv.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            feedbackDiv.style.opacity = '0';
+                            setTimeout(() => {
+                                feedbackDiv.textContent = '';
+                                feedbackDiv.style.display = 'none';
+                                feedbackDiv.style.opacity = '1';
+                            }, 300);
+                        }, 5000);
+                    }
+                } else {
+                    throw new Error('Unexpected response format');
+                }
+            } catch (err) {
+                console.error('Form submission error:', err);
+                if (feedbackDiv) {
+                    feedbackDiv.textContent = 'Failed to send message. Please try again.';
+                    feedbackDiv.style.color = '#ff5555';
+                    feedbackDiv.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        feedbackDiv.style.opacity = '0';
                         setTimeout(() => {
                             feedbackDiv.textContent = '';
                             feedbackDiv.style.display = 'none';
-                        }, 3000);
-                    }
+                            feedbackDiv.style.opacity = '1';
+                        }, 300);
+                    }, 5000);
                 }
-            } catch (err) {
             } finally {
                 sendBtn.textContent = originalBtnText;
                 sendBtn.disabled = false;
             }
         });
 
-        // Modal handling
-        const navPhoto = document.getElementById('navPhoto');
+        // Enhanced modal handling with touch support
         const photoModal = document.getElementById('photoModal');
-        const modalClose = document.getElementById('modalClose');
-
-        navPhoto.addEventListener('click', () => {
-            photoModal.classList.add('active');
-        });
-
-        modalClose.addEventListener('click', () => {
-            photoModal.classList.remove('active');
-        });
-
+        
+        // Handle modal backdrop clicks
         photoModal.addEventListener('click', (e) => {
-            if (e.target === photoModal) {
-                photoModal.classList.remove('active');
+            if (e.target === photoModal || e.target.classList.contains('modal-dialog')) {
+                const modalInstance = bootstrap.Modal.getInstance(photoModal);
+                if (modalInstance) modalInstance.hide();
             }
         });
 
-        // Floating code snippets (dynamic for mobile)
+        // Handle touch events for better mobile experience
+        if (DeviceDetector.isTouch()) {
+            let touchStartY = 0;
+            
+            photoModal.addEventListener('touchstart', (e) => {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            photoModal.addEventListener('touchend', (e) => {
+                const touchEndY = e.changedTouches[0].clientY;
+                const deltaY = touchStartY - touchEndY;
+                
+                // If swipe down gesture detected, close modal
+                if (deltaY < -100) {
+                    const modalInstance = bootstrap.Modal.getInstance(photoModal);
+                    if (modalInstance) modalInstance.hide();
+                }
+            }, { passive: true });
+        }
+
+        // Dynamic floating code snippets with mobile optimization
         function createFloatingCode() {
+            if (PerformanceManager.shouldReduceAnimations()) return;
+            
             const codeSnippets = [
                 'console.log();', 'function()', '{ }', 'const x =', 'return true;', 
                 'async/await', 'try/catch', 'new Promise()', 'Array.map()', 'Object.keys()',
-                'npm install', 'git commit', 'import from', 'export default', 'useState()'
+                'npm install', 'git commit', 'import from', 'export default', 'useState()',
+                'querySelector', 'addEventListener', 'fetch()', 'JSON.parse', 'setTimeout'
             ];
-            const interval = isMobile() ? 6000 : 3000;
-            const maxCodes = isMobile() ? 3 : 10;
+            
+            const interval = PerformanceManager.getOptimalInterval(3000);
+            const maxCodes = PerformanceManager.getOptimalCount(8);
             let activeCodes = 0;
-            setInterval(() => {
-                if (window.innerWidth < 480) return; // CSS hides, but skip for perf
+
+            const createCode = () => {
+                if (DeviceDetector.getViewportWidth() < 480) return;
                 if (activeCodes >= maxCodes) return;
+
                 const code = document.createElement('div');
                 code.className = 'floating-code';
                 code.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-                code.style.left = Math.random() * (window.innerWidth - 60) + 'px';
-                code.style.top = Math.random() * (window.innerHeight * 0.7) + 'px';
-                code.style.position = 'fixed';
-                code.style.animationDelay = Math.random() * 5 + 's';
-                code.style.color = `var(--accent-${['cyan', 'purple', 'pink', 'green'][Math.floor(Math.random() * 4)]})`;
+                
+                const viewportWidth = DeviceDetector.getViewportWidth();
+                const viewportHeight = DeviceDetector.getViewportHeight();
+                
+                code.style.cssText = `
+                    position: fixed;
+                    left: ${Math.random() * (viewportWidth - 120)}px;
+                    top: ${Math.random() * (viewportHeight * 0.7)}px;
+                    z-index: 1;
+                    pointer-events: none;
+                    opacity: 0.3;
+                    font-family: 'Courier New', monospace;
+                    font-size: ${DeviceDetector.isMobile() ? '10px' : '12px'};
+                    color: var(--accent-${['cyan', 'purple', 'pink', 'green'][Math.floor(Math.random() * 4)]});
+                    animation: float ${8 + Math.random() * 4}s ease-in-out infinite;
+                    animation-delay: ${Math.random() * 3}s;
+                `;
+                
                 document.body.appendChild(code);
                 activeCodes++;
+
+                const lifetime = DeviceDetector.isMobile() ? 8000 : 12000;
                 setTimeout(() => {
-                    code.remove();
-                    activeCodes--;
-                }, isMobile() ? 8000 : 20000);
-            }, interval);
+                    if (code.parentNode) {
+                        code.style.opacity = '0';
+                        setTimeout(() => {
+                            code.remove();
+                            activeCodes--;
+                        }, 500);
+                    }
+                }, lifetime);
+            };
+
+            // Start creating codes
+            setInterval(createCode, interval);
+            
+            // Create initial batch
+            setTimeout(() => {
+                for (let i = 0; i < Math.min(3, maxCodes); i++) {
+                    setTimeout(createCode, i * 1000);
+                }
+            }, 2000);
         }
 
-        // Utility: detect mobile device
-        function isMobile() {
-            return window.innerWidth <= 768 || /Mobi|Android/i.test(navigator.userAgent);
-        }
-
-        // Binary rain (dynamic for mobile)
+        // Enhanced binary rain with mobile optimization
         function createBinaryRain() {
+            if (PerformanceManager.shouldReduceAnimations()) return;
+            
             const binaryContainer = document.getElementById('binaryRain');
+            if (!binaryContainer) return;
+            
             const binary = ['0', '1'];
-            const interval = isMobile() ? 2000 : 1000;
-            const maxDrops = isMobile() ? 10 : 30;
+            const interval = PerformanceManager.getOptimalInterval(1500);
+            const maxDrops = PerformanceManager.getOptimalCount(25);
             let activeDrops = 0;
-            setInterval(() => {
-                if (window.innerWidth < 480) return;
+
+            const createDrop = () => {
+                if (DeviceDetector.getViewportWidth() < 480) return;
                 if (activeDrops >= maxDrops) return;
+
                 const drop = document.createElement('div');
                 drop.className = 'binary-drop';
                 drop.textContent = binary[Math.floor(Math.random() * 2)];
-                drop.style.left = Math.random() * (window.innerWidth - 20) + 'px';
-                drop.style.position = 'fixed';
-                drop.style.animationDelay = Math.random() * 2 + 's';
-                drop.style.animationDuration = (10 + Math.random() * 10) + 's';
+                
+                const viewportWidth = DeviceDetector.getViewportWidth();
+                
+                drop.style.cssText = `
+                    position: fixed;
+                    left: ${Math.random() * (viewportWidth - 20)}px;
+                    top: -20px;
+                    z-index: 1;
+                    pointer-events: none;
+                    opacity: 0.2;
+                    font-family: 'Courier New', monospace;
+                    font-size: ${DeviceDetector.isMobile() ? '12px' : '14px'};
+                    color: var(--accent-green);
+                    animation: fall ${8 + Math.random() * 6}s linear;
+                    animation-delay: ${Math.random() * 2}s;
+                `;
+                
                 binaryContainer.appendChild(drop);
                 activeDrops++;
+
                 setTimeout(() => {
-                    drop.remove();
-                    activeDrops--;
+                    if (drop.parentNode) {
+                        drop.remove();
+                        activeDrops--;
+                    }
                 }, 15000);
-            }, interval);
+            };
+
+            setInterval(createDrop, interval);
         }
 
-        // Hamburger menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Theme Toggle Functionality
+        // Theme Toggle Functionality with enhanced mobile support
         class ThemeManager {
             constructor() {
                 this.themeToggle = document.getElementById('themeToggle');
-                this.themeIcon = this.themeToggle.querySelector('.theme-toggle-icon');
+                this.themeIcon = this.themeToggle?.querySelector('.theme-toggle-icon');
                 this.currentTheme = localStorage.getItem('theme') || 'dark';
+                this.isTransitioning = false;
                 
-                this.init();
+                if (this.themeToggle && this.themeIcon) {
+                    this.init();
+                }
             }
-            
+
             init() {
-                // Set initial theme
                 document.documentElement.setAttribute('data-theme', this.currentTheme);
                 this.updateIcon();
                 
-                // Add event listener
-                this.themeToggle.addEventListener('click', () => this.toggleTheme());
+                this.themeToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.toggleTheme();
+                });
                 
-                // Add keyboard support
                 this.themeToggle.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
                         this.toggleTheme();
                     }
                 });
+
+                // Handle system theme changes
+                if (window.matchMedia) {
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                        if (!localStorage.getItem('theme')) {
+                            this.currentTheme = e.matches ? 'dark' : 'light';
+                            document.documentElement.setAttribute('data-theme', this.currentTheme);
+                            this.updateIcon();
+                        }
+                    });
+                }
             }
-            
+
             toggleTheme() {
-                // Add transition class for smooth animation
+                if (this.isTransitioning) return;
+                
+                this.isTransitioning = true;
                 document.body.classList.add('theme-transitioning');
                 
-                // Toggle theme
                 this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-                
-                // Apply new theme
                 document.documentElement.setAttribute('data-theme', this.currentTheme);
                 localStorage.setItem('theme', this.currentTheme);
                 
-                // Update icon with animation
                 this.updateIcon();
                 
-                // Remove transition class after animation
+                if (!DeviceDetector.isMobile() && !PerformanceManager.shouldReduceAnimations()) {
+                    this.createRipple();
+                }
+                
                 setTimeout(() => {
                     document.body.classList.remove('theme-transitioning');
+                    this.isTransitioning = false;
                 }, 300);
-                
-                // Add ripple effect
-                this.createRipple();
             }
-            
+
             updateIcon() {
+                if (!this.themeIcon) return;
+                
                 const isDark = this.currentTheme === 'dark';
                 this.themeIcon.textContent = isDark ? '🌙' : '☀️';
                 this.themeToggle.setAttribute('aria-label', 
                     `Switch to ${isDark ? 'light' : 'dark'} mode`
                 );
+                
+                // Add subtle animation
+                this.themeIcon.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    this.themeIcon.style.transform = 'scale(1)';
+                }, 150);
             }
-            
+
             createRipple() {
                 const ripple = document.createElement('div');
+                const rect = this.themeToggle.getBoundingClientRect();
+                
                 ripple.style.cssText = `
                     position: fixed;
-                    top: 50%;
-                    right: 50px;
+                    top: ${rect.top + rect.height / 2}px;
+                    left: ${rect.left + rect.width / 2}px;
                     width: 0;
                     height: 0;
                     background: ${this.currentTheme === 'dark' ? 
-                        'radial-gradient(circle, rgba(203, 166, 247, 0.3) 0%, transparent 70%)' : 
-                        'radial-gradient(circle, rgba(128, 90, 213, 0.3) 0%, transparent 70%)'};
+                        'radial-gradient(circle, rgba(203, 166, 247, 0.15) 0%, transparent 70%)' : 
+                        'radial-gradient(circle, rgba(128, 90, 213, 0.15) 0%, transparent 70%)'};
                     border-radius: 50%;
-                    transform: translate(50%, -50%);
+                    transform: translate(-50%, -50%);
                     pointer-events: none;
                     z-index: 9999;
-                    transition: all 0.6s ease-out;
+                    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+                    opacity: 1;
                 `;
                 
                 document.body.appendChild(ripple);
                 
-                // Trigger animation
                 requestAnimationFrame(() => {
-                    ripple.style.width = '200vw';
-                    ripple.style.height = '200vw';
+                    const size = Math.max(window.innerWidth, window.innerHeight) * 2.5;
+                    ripple.style.width = `${size}px`;
+                    ripple.style.height = `${size}px`;
                     ripple.style.opacity = '0';
                 });
-                
-                // Remove ripple after animation
+
                 setTimeout(() => {
-                    ripple.remove();
-                }, 600);
+                    if (ripple.parentNode) {
+                        ripple.remove();
+                    }
+                }, 800);
             }
         }
 
-        // Initialize when page loads
-        window.addEventListener('load', () => {
-            createFloatingCode();
-            createBinaryRain();
-            new ThemeManager();
+        // Viewport resize handler for responsive updates
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            if (resizeTimeout) clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Update mobile detection
+                const wasMobile = DeviceDetector.isMobile();
+                
+                // Reset navbar transform on desktop
+                if (!wasMobile && navbarHidden) {
+                    document.getElementById('navbar').style.transform = '';
+                    navbarHidden = false;
+                }
+                
+                // Clear existing particles on significant resize
+                document.querySelectorAll('.floating-code, .binary-drop').forEach(el => el.remove());
+            }, 250);
         });
 
-        // Add smooth transition class
-        const themeTransitionCSS = `
-            .theme-transitioning * {
-                transition: background-color 0.3s ease, 
-                           color 0.3s ease, 
-                           border-color 0.3s ease,
-                           box-shadow 0.3s ease !important;
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Escape key handling
+            if (e.key === 'Escape') {
+                const modal = bootstrap.Modal.getInstance(document.getElementById('photoModal'));
+                if (modal) modal.hide();
+                
+                // Close mobile navbar
+                collapseNavbar();
             }
-        `;
+            
+            // Navigation shortcuts (Alt + number)
+            if (e.altKey && !e.shiftKey && !e.ctrlKey) {
+                const sections = ['hero', 'about', 'skills', 'projects', 'contact'];
+                const num = parseInt(e.key);
+                if (num >= 1 && num <= sections.length) {
+                    e.preventDefault();
+                    scrollToSection(sections[num - 1]);
+                }
+            }
+        });
 
-    // Inject transition CSS
-    const style = document.createElement('style');
-    style.textContent = themeTransitionCSS;
-    document.head.appendChild(style);
-</script>
-    
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add theme transition styles
+            const themeTransitionCSS = `
+                .theme-transitioning,
+                .theme-transitioning * {
+                    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                               color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                               border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                }
+                
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px) rotate(0deg); }
+                    25% { transform: translateY(-10px) rotate(1deg); }
+                    50% { transform: translateY(-5px) rotate(-1deg); }
+                    75% { transform: translateY(-15px) rotate(0.5deg); }
+                }
+                
+                @keyframes fall {
+                    0% { transform: translateY(-20px); opacity: 0; }
+                    10% { opacity: 0.3; }
+                    90% { opacity: 0.1; }
+                    100% { transform: translateY(100vh); opacity: 0; }
+                }
+                
+                .floating-code {
+                    transition: opacity 0.5s ease;
+                }
+            `;
+            
+            const style = document.createElement('style');
+            style.textContent = themeTransitionCSS;
+            document.head.appendChild(style);
+        });
+
+        // Initialize components when page loads
+        window.addEventListener('load', () => {
+            // Initialize theme manager
+            new ThemeManager();
+            
+            // Start animations after a delay for better perceived performance
+            setTimeout(() => {
+                createFloatingCode();
+                createBinaryRain();
+            }, 1500);
+            
+            // Preload critical images
+            const profileImg = new Image();
+            profileImg.src = 'assets/sushan-profile.jpg';
+        });
+
+        // Add service worker for offline functionality (optional)
+        if ('serviceWorker' in navigator && !DeviceDetector.isMobile()) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(() => console.log('SW registered'))
+                    .catch(() => console.log('SW registration failed'));
+            });
+        }
+
+        // Export utilities for potential external use
+        window.PortfolioUtils = {
+            DeviceDetector,
+            PerformanceManager,
+            scrollToSection,
+            collapseNavbar
+        };
+    </script>
 </body>
 </html>
